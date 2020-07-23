@@ -64,6 +64,12 @@ format: deps  ## Auto-format all Python code to project standard.
 lint: deps  ## Run code linters.
 	SKIP=black,isort poetry run pre-commit run --all-files
 
+migrate:
+	yoyo apply --database $(DB_URI) ./migrations
+
+rollback:
+	yoyo rollback --database $(DB_URI) ./migrations
+
 resync: $(VIRTUALENV) poetry.lock  ## `make resync deps` to force deps install
 	-rm $(VIRTUALENV)/.updated
 

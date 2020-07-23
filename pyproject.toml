@@ -13,7 +13,7 @@ ai = 'ai.index:main'
 [tool.poetry.dependencies]
 python = "^3.8.3"
 psycopg2 = "^2.8.5"
-alembic = "^1.4.2"
+yoyo-migrations = "^7.2.0"
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"  # "*" does not work with black's versioning scheme
