@@ -1,11 +1,14 @@
 """Main Entry Point"""
 import sys
 
+from src.service.scheduler import schedule_tasks
+
 
 def main(args=None):
-    """Console script for ai."""
-    print('Starting code here')
-    return 0
+    """Start Service with scheduling"""
+    print('Starting service...')
+    schedule_tasks()
+    # return 0
 
 
 if __name__ == "__main__":
