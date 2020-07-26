@@ -80,6 +80,29 @@ class TestSerializers(unittest.TestCase):
         assert message_create == message_expected
 
     @freeze_time("2012-01-01")
+    def test_create_status_response_should_return_match_and_add_timestamp(self):
+        link = 'http://aiven.io'
+        event_name = 'status_request_created'
+        http_response_time = 1000
+        code_return = 200
+        content = 'sdfghjkaivensdfghj'
+        pattern = '.*aiven.*'
+
+        message_expected = {
+            'event_name': event_name,
+            'timestamp': '2012-01-01T00:00:00',
+            'link': link,
+            'http_response_time': http_response_time,
+            'code_return': code_return,
+            'content_match': True,
+        }
+
+        message_create = create_status_request_response(
+            link, http_response_time, code_return, content, pattern, timestamp=datetime.now().isoformat()
+        )
+        assert message_create == message_expected
+
+    @freeze_time("2012-01-01")
     def test_succeed_status_response_should_return_with_timestamp(self):
         link = 'http://aiven.io'
         http_response_time = 1000

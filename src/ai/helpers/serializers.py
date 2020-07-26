@@ -34,8 +34,18 @@ def create_status_request_response(
     }
 
     if content and pattern:
+        print('11111111111111')
+        print(link)
+        print(pattern)
+        print('11111111111111')
         regex = re.compile(pattern)
-        message_response.update({'content_match': regex.match(pattern, content)})
+        # import pdb; pdb.set_trace()
+        if re.match(regex, content):
+            print("TRUE")
+        else:
+            print("False")
+        print('11111111111111')
+        message_response.update({'content_match': True if re.match(regex, content) else False})
 
     if event_name:
         return create_message(event_name, message_response, timestamp=timestamp)

@@ -7,7 +7,8 @@ license = "MIT license"
 
 
 [tool.poetry.scripts]
-ai = 'ai.index:main'
+scheduler = 'ai.index:scheduler'
+consumer = 'ai.index:consumer'
 
 
 [tool.poetry.dependencies]
@@ -15,6 +16,7 @@ python = "^3.8.3"
 psycopg2 = "^2.8.5"
 yoyo-migrations = "^7.2.0"
 confluent-kafka = "^1.5.0"
+requests = "^2.24.0"
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"  # "*" does not work with black's versioning scheme
