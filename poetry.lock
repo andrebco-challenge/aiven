@@ -135,6 +135,22 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 version = "0.4.3"
 
 [[package]]
+category = "main"
+description = "Confluent's Python client for Apache Kafka"
+name = "confluent-kafka"
+optional = false
+python-versions = "*"
+version = "1.5.0"
+
+[package.extras]
+avro = ["fastavro (>=0.23.0)", "requests", "avro (1.10.0)", "avro-python3 (1.10.0)"]
+dev = ["pytest-timeout", "flake8", "fastavro (>=0.23.0)", "requests", "pytest (4.6.4)", "avro (1.10.0)", "avro-python3 (1.10.0)", "pytest"]
+doc = ["sphinx", "sphinx-rtd-theme", "fastavro (>=0.23.0)", "requests", "avro (1.10.0)", "avro-python3 (1.10.0)"]
+json = ["jsonschema", "requests"]
+protobuf = ["protobuf", "requests"]
+schema-registry = ["requests"]
+
+[[package]]
 category = "dev"
 description = "Code coverage measurement for Python"
 name = "coverage"
@@ -189,6 +205,18 @@ version = "3.8.3"
 mccabe = ">=0.6.0,<0.7.0"
 pycodestyle = ">=2.6.0a1,<2.7.0"
 pyflakes = ">=2.2.0,<2.3.0"
+
+[[package]]
+category = "dev"
+description = "Let your Python tests travel through time"
+name = "freezegun"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+version = "0.3.15"
+
+[package.dependencies]
+python-dateutil = ">=1.0,<2.0 || >2.0"
+six = "*"
 
 [[package]]
 category = "dev"
@@ -526,6 +554,17 @@ testing = ["fields", "hunter", "process-tests (2.0.2)", "six", "pytest-xdist", "
 
 [[package]]
 category = "dev"
+description = "Extensions to the standard Python datetime module"
+name = "python-dateutil"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
+version = "2.8.1"
+
+[package.dependencies]
+six = ">=1.5"
+
+[[package]]
+category = "dev"
 description = "World timezone definitions, modern and historical"
 name = "pytz"
 optional = false
@@ -829,7 +868,7 @@ postgres = ["psycopg2"]
 pyodbc = ["pyodbc"]
 
 [metadata]
-content-hash = "aba088e8cdcba4a4a055dc8b590adbe9933a87a48538b912d2e0874634fc58b3"
+content-hash = "a48634aad1c4ff6001e3e16cb555064428a7be63fa757088ef7eaebc09cf6119"
 python-versions = "^3.8.3"
 
 [metadata.files]
@@ -889,6 +928,33 @@ colorama = [
     {file = "colorama-0.4.3-py2.py3-none-any.whl", hash = "sha256:7d73d2a99753107a36ac6b455ee49046802e59d9d076ef8e47b61499fa29afff"},
     {file = "colorama-0.4.3.tar.gz", hash = "sha256:e96da0d330793e2cb9485e9ddfd918d456036c7149416295932478192f4436a1"},
 ]
+confluent-kafka = [
+    {file = "confluent_kafka-1.5.0-cp27-cp27m-macosx_10_6_intel.whl", hash = "sha256:a116382ae67e0d6a54684bab4ee9b1be54e789d031a6e5e74c3edc657c79d23c"},
+    {file = "confluent_kafka-1.5.0-cp27-cp27m-manylinux1_i686.whl", hash = "sha256:9534cd2c0313df75b70eb4cf729382998970d97bbdda5cf3aef7081b855ccebe"},
+    {file = "confluent_kafka-1.5.0-cp27-cp27m-manylinux1_x86_64.whl", hash = "sha256:85ff4823770ce2efaabb46d88e5ae26a840e0051fd481abaa805f21a5a84d003"},
+    {file = "confluent_kafka-1.5.0-cp27-cp27m-win32.whl", hash = "sha256:5a1c47320d6afc5b2599f8f8e143aed6845a2d903facde984606e02f10f11221"},
+    {file = "confluent_kafka-1.5.0-cp27-cp27m-win_amd64.whl", hash = "sha256:dabed41cc60d1fc6d3cb44a90fe02e5192c9bf0f73c7b35761981e62ecabc592"},
+    {file = "confluent_kafka-1.5.0-cp27-cp27mu-manylinux1_i686.whl", hash = "sha256:3034cacc3b0d03eb3ce39cc5a64c1070d223870246f5d90c9113996be9db7df8"},
+    {file = "confluent_kafka-1.5.0-cp27-cp27mu-manylinux1_x86_64.whl", hash = "sha256:7b03bd9cc7b5e4df0a27eed359762c61a35313d4981ef1d9b418069eee454e66"},
+    {file = "confluent_kafka-1.5.0-cp35-cp35m-macosx_10_6_intel.whl", hash = "sha256:3e2d4f55ca952aeada3831d6615dc13a8a42c8e97175855ca08bbc6e6091b080"},
+    {file = "confluent_kafka-1.5.0-cp35-cp35m-manylinux1_i686.whl", hash = "sha256:c7461d6db081c23a6d38ceba348e7c178d7e974cf22c45ba8a4918ecb8855a44"},
+    {file = "confluent_kafka-1.5.0-cp35-cp35m-manylinux1_x86_64.whl", hash = "sha256:175c7064c8f19975616974558c45f42c147a202d4b1c0b0a83afefb920367696"},
+    {file = "confluent_kafka-1.5.0-cp35-cp35m-win32.whl", hash = "sha256:eba169a9de8c978c9f33c763857c5279eceac46a4fd55a381c2528b9d4b3359e"},
+    {file = "confluent_kafka-1.5.0-cp35-cp35m-win_amd64.whl", hash = "sha256:bbd9633552840ab9367fb762ea21272759db8caec2c34ff16ee28be177644cdf"},
+    {file = "confluent_kafka-1.5.0-cp36-cp36m-macosx_10_6_intel.whl", hash = "sha256:bb77276d569f511abe4a5b32a53f8a30285bc7be68219e5711a44720bf356ac2"},
+    {file = "confluent_kafka-1.5.0-cp36-cp36m-manylinux1_i686.whl", hash = "sha256:9a1c77291c1ac4b991aa0358f2f44636686eb8f52fb628502d30c312160a14e9"},
+    {file = "confluent_kafka-1.5.0-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:13b0e2011560f461ff39daf38089dd7f91404b3e66dba0456ccce0700f93c4f2"},
+    {file = "confluent_kafka-1.5.0-cp36-cp36m-win32.whl", hash = "sha256:22d7201d1aa89f1c5546749e781492925ed3eb0d7bd8f781fc57294cd45ddde3"},
+    {file = "confluent_kafka-1.5.0-cp36-cp36m-win_amd64.whl", hash = "sha256:d6a5d4c72360a75e875e88f7cce42b66a786d037ca2002303ab1c580d49caf53"},
+    {file = "confluent_kafka-1.5.0-cp37-cp37m-macosx_10_6_intel.whl", hash = "sha256:0a59afbb90bdd22b9acdd3bb134f5ee1dff3cc5df55eaf52bf97b2f8d0d00de3"},
+    {file = "confluent_kafka-1.5.0-cp37-cp37m-manylinux1_i686.whl", hash = "sha256:f2d1ee0bfdf618017bbfaa42406546155c1a86263e4f286295318578c723803b"},
+    {file = "confluent_kafka-1.5.0-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:dd544847c713eeeb525031348ff6ffea4ecdd11c13590893e599a9d4676a9bd4"},
+    {file = "confluent_kafka-1.5.0-cp37-cp37m-win32.whl", hash = "sha256:00acc73f7d49961bf427f5e4fd6c0a220a6bfa5ccc91e0ad1f9ffa1751a169b0"},
+    {file = "confluent_kafka-1.5.0-cp37-cp37m-win_amd64.whl", hash = "sha256:b1c89f3653385acc5da71570e03281f35ac6960367f2b2a426ae431deb1a1a35"},
+    {file = "confluent_kafka-1.5.0-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:99b13d0957a5967c85aee6138ef5f9acec90294267a549c5683744f20cf5d7b4"},
+    {file = "confluent_kafka-1.5.0-cp38-cp38-manylinux1_i686.whl", hash = "sha256:bfdfa81e4e72d2c24e408a5e199aae0a477499ae40647dfa6906d002d9b07f38"},
+    {file = "confluent_kafka-1.5.0-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:9c47b8aacfe347bffd86bf75b98626718912b63df87f256dff1abc06a0355410"},
+]
 coverage = [
     {file = "coverage-5.2-cp27-cp27m-macosx_10_13_intel.whl", hash = "sha256:d9ad0a988ae20face62520785ec3595a5e64f35a21762a57d115dae0b8fb894a"},
     {file = "coverage-5.2-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:4bb385a747e6ae8a65290b3df60d6c8a692a5599dc66c9fa3520e667886f2e10"},
@@ -944,6 +1010,10 @@ filelock = [
 flake8 = [
     {file = "flake8-3.8.3-py2.py3-none-any.whl", hash = "sha256:15e351d19611c887e482fb960eae4d44845013cc142d42896e9862f775d8cf5c"},
     {file = "flake8-3.8.3.tar.gz", hash = "sha256:f04b9fcbac03b0a3e58c0ab3a0ecc462e023a9faf046d57794184028123aa208"},
+]
+freezegun = [
+    {file = "freezegun-0.3.15-py2.py3-none-any.whl", hash = "sha256:82c757a05b7c7ca3e176bfebd7d6779fd9139c7cb4ef969c38a28d74deef89b2"},
+    {file = "freezegun-0.3.15.tar.gz", hash = "sha256:e2062f2c7f95cc276a834c22f1a17179467176b624cc6f936e8bc3be5535ad1b"},
 ]
 identify = [
     {file = "identify-1.4.25-py2.py3-none-any.whl", hash = "sha256:ccd88716b890ecbe10920659450a635d2d25de499b9a638525a48b48261d989b"},
@@ -1105,6 +1175,10 @@ pytest = [
 pytest-cov = [
     {file = "pytest-cov-2.10.0.tar.gz", hash = "sha256:1a629dc9f48e53512fcbfda6b07de490c374b0c83c55ff7a1720b3fccff0ac87"},
     {file = "pytest_cov-2.10.0-py2.py3-none-any.whl", hash = "sha256:6e6d18092dce6fad667cd7020deed816f858ad3b49d5b5e2b1cc1c97a4dba65c"},
+]
+python-dateutil = [
+    {file = "python-dateutil-2.8.1.tar.gz", hash = "sha256:73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"},
+    {file = "python_dateutil-2.8.1-py2.py3-none-any.whl", hash = "sha256:75bb3f31ea686f1197762692a9ee6a7550b59fc6ca3a1f4b5d7e32fb98e2da2a"},
 ]
 pytz = [
     {file = "pytz-2020.1-py2.py3-none-any.whl", hash = "sha256:a494d53b6d39c3c6e44c3bec237336e14305e4f29bbf800b599253057fbb79ed"},

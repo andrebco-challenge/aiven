@@ -1,9 +1,8 @@
 ==
-ai
+Aivens Project
 ==
 
-
-Aivens Project
+ // EXPLICAR
 
 
 Features
@@ -21,3 +20,4 @@ Repository based on:
 Links used:
 
 - https://pynative.com/python-postgresql-tutorial/
+- https://github.com/confluentinc/confluent-kafka-python/tree/master/examples
