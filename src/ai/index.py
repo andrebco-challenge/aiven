@@ -2,7 +2,10 @@
 import sys
 
 from src.ai.consumer.url_checker import consume_event
+from src.service.kafka import start
 from src.service.scheduler import schedule_tasks
+
+start()
 
 
 def consumer(args=None):
