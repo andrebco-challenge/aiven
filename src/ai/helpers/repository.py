@@ -1,4 +1,4 @@
-from src.service.database import Connection
+from service.database import Connection
 
 # TODO: Use a proper library to create queries instead of raw sqls.
 SELECT_STATUS_REQUEST_SUCCEEDED = "SELECT * FROM status_request_succeeded;"

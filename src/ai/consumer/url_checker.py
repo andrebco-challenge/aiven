@@ -2,10 +2,9 @@ import json
 
 import requests
 
+from ai.helpers.consumer_utils import consume_event
+from ai.helpers.producer_utils import create_event
 from src.ai.helpers.serializers import fail_status_request, succeed_status_request
-from src.ai.producer.generic import create_event
-
-from .generic import consume_event
 
 
 # TODO: Add a payload Validator

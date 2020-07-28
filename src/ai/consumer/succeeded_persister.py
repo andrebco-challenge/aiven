@@ -1,7 +1,8 @@
 import json
 
+from ai.helpers.consumer_utils import consume_event
+
 from ..helpers.repository import insert_status_request_succeeded
-from .generic import consume_event
 
 
 # TODO: Add a payload Validator

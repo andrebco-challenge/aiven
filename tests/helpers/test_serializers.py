@@ -3,7 +3,7 @@ from datetime import datetime
 
 from freezegun import freeze_time
 
-from src.ai.helpers.serializers import (
+from ai.helpers.serializers import (
     create_message,
     create_status_request,
     create_status_request_response,

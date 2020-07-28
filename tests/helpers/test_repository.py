@@ -1,7 +1,7 @@
 import unittest
 from datetime import datetime
 
-from src.ai.helpers import repository
+from ai.helpers import repository
 
 
 class TestRepository(unittest.TestCase):
