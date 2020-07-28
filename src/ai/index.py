@@ -1,11 +1,11 @@
 """Main Entry Point"""
-import sys
-
 from src.ai.consumer.url_checker import consume_event
+from src.service.database import connect
 from src.service.kafka import start
 from src.service.scheduler import schedule_tasks
 
 start()
+connect()
 
 
 def consumer(args=None):
@@ -20,7 +20,3 @@ def scheduler(args=None):
     print('Starting service...')
     schedule_tasks()
     return 0
-
-
-if __name__ == "__main__":
-    sys.exit(consumer())  # pragma: no cover

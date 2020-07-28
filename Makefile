@@ -90,6 +90,10 @@ test-coverage: deps  ## Check code coverage quickly with default Python.
 	-poetry run coverage report --show-missing --skip-empty --skip-covered
 	@echo xdg-open htmlcov/index.html
 
+test-verbose: export PYTHONPATH=src
+test-verbose: deps  ## Run tests quickly with default Python.
+	poetry run pytest -s
+
 poetry.lock:
 	poetry lock
 

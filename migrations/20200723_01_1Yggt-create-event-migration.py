@@ -1,6 +1,4 @@
-"""
- Create Event Migration
-"""
+"""Create Event Migration"""
 
 from yoyo import step
 
@@ -10,7 +8,7 @@ steps = [
     step(
         """CREATE TABLE status_request_succeeded (
             id serial PRIMARY KEY,
-            timestamp date,
+            timestamp TIMESTAMP,
             link varchar(255) NOT NULL,
             return_code integer NOT NULL,
             return_time integer NOT NULL,
@@ -21,7 +19,7 @@ steps = [
     step(
         """CREATE TABLE status_request_failed (
              id serial PRIMARY KEY,
-             timestamp date,
+             timestamp TIMESTAMP,
              link varchar(255) NOT NULL,
              return_code integer NOT NULL,
              return_time integer NOT NULL
@@ -29,4 +27,3 @@ steps = [
         "DROP TABLE status_request_failed",
     ),
 ]
-
