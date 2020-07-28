@@ -1,38 +1,35 @@
-from confluent_kafka import Consumer
+import json
 
-from src.ai.helpers.url_checker import check_url
+import requests
 
-conf = {
-    'bootstrap.servers': "localhost:9092",
-    'group.id': "status_created",
-    'session.timeout.ms': 6000,
-    'auto.offset.reset': 'earliest',
-}
+from src.ai.helpers.serializers import fail_status_request, succeed_status_request
+from src.ai.producer.generic import create_event
 
-consumer = Consumer(conf, debug='fetch')
+from .generic import consume_event
 
 
-def consume_event():
-    topic = 'status_request_created'
-    consumer.subscribe([topic])
-
+# TODO: Add a payload Validator
+def check_url(_payload: str):
+    payload = json.loads(_payload)
+    link = payload.get('link')
+    pattern = payload.get('pattern')
     try:
-        while True:
-            msg = consumer.poll(timeout=1.0)
-            if msg is None:
-                continue
-            if msg.error():
-                raise Exception(msg.error())
-            else:
-                # Proper message
-                print(
-                    '%% %s [%d] at offset %d with key %s' % (msg.topic(), msg.partition(), msg.offset(), str(msg.key()))
-                )
-                check_url(msg.value())
-                print(msg.value())
+        response = requests.get(link)
+        code_return = response.status_code
+        response_time = response.elapsed.microseconds
+        content = response.content.decode("utf-8")
 
-    except KeyboardInterrupt:
-        print('%% Aborted by user\n')
+        if code_return == requests.codes.OK:
+            event_payload = succeed_status_request(link, response_time, code_return, content, pattern)
+            create_event('status_request_succeeded', event_payload)
+        else:
+            event_payload = fail_status_request(link, response_time, code_return, content, pattern)
+            create_event('status_request_failed', event_payload)
+    except requests.ConnectionError:
+        event_payload = fail_status_request(link, 0, 0)
+        create_event('status_request_failed', event_payload)
 
-    finally:
-        consumer.close()
+
+def url_checker_consumer():
+    topic = 'status_request_created'
+    consume_event(topic, check_url)

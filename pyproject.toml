@@ -7,8 +7,10 @@ license = "MIT license"
 
 
 [tool.poetry.scripts]
-scheduler = 'ai.index:scheduler'
-consumer = 'ai.index:consumer'
+task_scheduler = 'ai.index:task_scheduler'
+url_consumer = 'ai.index:url_consumer'
+succeeded_consumer = 'ai.index:succeeded_messages_consumer'
+failed_consumer = 'ai.index:failed_messages_consumer'
 
 
 [tool.poetry.dependencies]
